@@ -67,7 +67,7 @@ class AuthController extends Controller
             return back()->withErrors(['email' => 'El usuario no existe.']);
         }
 
-        // Verificar si la contraseña es correcta (sin encriptar)
+        // Verificar si la contraseña es correcta
         if ($request->password !== $user->password) {
             return back()->withErrors(['password' => 'La contraseña es incorrecta.']);
         }
@@ -76,7 +76,7 @@ class AuthController extends Controller
         Auth::login($user);
         $request->session()->regenerate();
 
-        return redirect()->route('home')->with('success', 'Inicio de sesión exitoso.');
+        return redirect()->route('home');
     }
 
     // Cierra sesión

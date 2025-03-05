@@ -107,7 +107,7 @@ class CartController extends Controller
         // Vaciar el carrito después de la compra
         session()->forget('cart');
 
-        return redirect()->route('cart.index'); // Redirigir al usuario a sus pedidos
+        return redirect()->route('cart.index');
     }
 }
 
